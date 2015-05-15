@@ -3,20 +3,20 @@
 var gulp = require('gulp');
 var imagepack = require('./');
 
-var filename = 'test';
+var filename = 'pack';
 
 gulp.task('pack', function() {
-  // return gulp.src(['./images/**/*.{gif,jpg,png,webp}'])
-  return gulp.src(['./images/**/*'])
+  // return gulp.src(['./example/images/**/*'])
+  return gulp.src(['./example/images/**/*.{gif,jpg,png,webp}'])
     .pipe(imagepack.pack({
       name: filename,
       verbose: true
     }))
-    .pipe(gulp.dest('./packed'));
+    .pipe(gulp.dest('./example/packs'));
 });
 
 gulp.task('unpack', function() {
-  return gulp.src(['./packed/' + filename + '.bin'])
+  return gulp.src(['./example/packs/' + filename + '.bin'])
     .pipe(imagepack.unpack({
       verbose: true
     }))

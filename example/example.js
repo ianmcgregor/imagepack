@@ -13,7 +13,7 @@
     })
     .once('complete', animate)
     .once('complete', display)
-    .load('../packed/test.bin');
+    .load('packs/pack.bin');
 
   function display(keys) {
       keys.forEach(function(name) {
@@ -21,7 +21,10 @@
       });
   }
 
-  function animate(sequence) {
+  function animate(keys) {
+      var sequence = keys.filter(function(name) {
+        return name.slice(0, 6) === 'loader';
+      });
       var img = new Image();
       document.body.appendChild(img);
       var i = 0;
