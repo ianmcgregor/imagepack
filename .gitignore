@@ -15,7 +15,6 @@ bower_components/
 node_modules/
 temp/
 packed/
-images/
 unpacked/
 
 *.mp4
