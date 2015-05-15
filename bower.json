@@ -1,0 +1,22 @@
+{
+  "name": "imagepack",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ianmcgregor/imagepack",
+  "authors": [
+    "Ian McGregor <i.mcgrgr@gmail.com>"
+  ],
+  "description": "Pack multiple images into one file to minimise http requests",
+  "main": "dist/imagepack.min.js",
+  "moduleType": [
+    "node",
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

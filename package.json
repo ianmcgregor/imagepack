@@ -1,0 +1,38 @@
+{
+  "name": "imagepack",
+  "version": "0.1.0",
+  "description": "Pack multiple images into one file to minimise http requests",
+  "keywords": [
+    "image",
+    "compress",
+    "pack"
+  ],
+  "main": "./index.js",
+  "browser": "./src/imagepack.js",
+  "scripts": {
+    "test": "mocha test.js --timeout 20000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianmcgregor/imagepack"
+  },
+  "author": "ianmcgregor",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "events": "^1.0.2",
+    "gulp-util": "^3.0.4",
+    "through2-concurrent": "^1.0.0",
+    "vinyl": "^0.4.6"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.0",
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "mocha": "^2.2.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
