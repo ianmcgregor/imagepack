@@ -20,8 +20,27 @@ describe('packer', function() {
   	stream.on('end', cb);
 
   	stream.write(new gutil.File({
-  		path: __dirname + '/images/ecosys-a000.jpg',
-		  contents: fs.readFileSync('./images/ecosys-a000.jpg')
+  		path: __dirname + '/example/images/graff.jpg',
+		  contents: fs.readFileSync('./example/images/graff.jpg')
+  	}));
+
+  	stream.end();
+  });
+
+  it('should pack png', function (cb) {
+  	var stream = imagepack.pack({
+      verbose: true
+    });
+
+  	stream.once('data', function (file) {
+      assert(file.contents.length > 0);
+  	});
+
+  	stream.on('end', cb);
+
+  	stream.write(new gutil.File({
+  		path: __dirname + '/example/images/loader_b0001.png',
+		  contents: fs.readFileSync('./example/images/loader_b0001.png')
   	}));
 
   	stream.end();
@@ -40,8 +59,8 @@ describe('packer', function() {
   	stream.on('end', cb);
 
   	stream.write(new gutil.File({
-  		path: __dirname + '/images/ecosys-a000.jpg',
-		  contents: fs.readFileSync('./images/ecosys-a000.jpg')
+  		path: __dirname + '/example/images/graff.jpg',
+		  contents: fs.readFileSync('./example/images/graff.jpg')
   	}));
 
   	stream.end();
@@ -59,7 +78,7 @@ describe('packer', function() {
       });
 
       unpackStream.once('data', function (file) {
-        assert.strictEqual(path.basename(file.path), 'ecosys-a000.jpg');
+        assert.strictEqual(path.basename(file.path), 'graff.jpg');
       });
 
       unpackStream.on('end', cb);
@@ -70,8 +89,8 @@ describe('packer', function() {
   	});
 
   	stream.write(new gutil.File({
-  		path: __dirname + '/images/ecosys-a000.jpg',
-		  contents: fs.readFileSync('./images/ecosys-a000.jpg')
+  		path: __dirname + '/example/images/graff.jpg',
+		  contents: fs.readFileSync('./example/images/graff.jpg')
   	}));
 
   	stream.end();
