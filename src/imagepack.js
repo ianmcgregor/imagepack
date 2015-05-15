@@ -96,8 +96,8 @@ function Imagepack(options) {
 
   function load(path) {
     var request = new XMLHttpRequest();
-    request.responseType = 'arraybuffer';
     request.open('GET', path, true);
+    request.responseType = 'arraybuffer';
     request.addEventListener('load', function() {
       if (request.status < 400) {
         decode(request.response);
