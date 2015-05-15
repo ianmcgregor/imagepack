@@ -21,7 +21,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();
@@ -40,7 +40,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/loader_b0001.png',
-		  contents: fs.readFileSync('./example/images/loader_b0001.png')
+		  contents: fs.readFileSync('example/images/loader_b0001.png')
   	}));
 
   	stream.end();
@@ -60,7 +60,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();
@@ -90,7 +90,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();
