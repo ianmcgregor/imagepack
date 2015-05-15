@@ -2,15 +2,26 @@
 
 (function() {
 
+  var log = document.querySelector('[data-js="log"]');
 
   var imagepack = new window.Imagepack({
       verbose: true
     })
     .on('error', function(error) {
        console.error(error);
+       log.innerHTML = error;
     })
     .on('progress', function(progress) {
        console.log(progress);
+       log.innerHTML = 'loading ' + (progress * 100).toFixed() + '%';
+    })
+    .once('complete', function(names) {
+      var msg = '<h4>Loaded ' + names.length + ' files from packs/pack.bin</h4>';
+
+      log.innerHTML = names.reduce(function(value, name) {
+        return value + name + '<br>';
+      }, msg);
+
     })
     .once('complete', getPng)
     .once('complete', getJpg)
