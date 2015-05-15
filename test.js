@@ -21,7 +21,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();
@@ -40,7 +40,45 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/loader_b0001.png',
-		  contents: fs.readFileSync('./example/images/loader_b0001.png')
+		  contents: fs.readFileSync('example/images/loader_b0001.png')
+  	}));
+
+  	stream.end();
+  });
+
+  it('should pack gif', function (cb) {
+  	var stream = imagepack.pack({
+      verbose: true
+    });
+
+  	stream.once('data', function (file) {
+      assert(file.contents.length > 0);
+  	});
+
+  	stream.on('end', cb);
+
+  	stream.write(new gutil.File({
+  		path: __dirname + '/example/images/loader.gif',
+		  contents: fs.readFileSync('example/images/loader.gif')
+  	}));
+
+  	stream.end();
+  });
+
+  it('should pack webp', function (cb) {
+  	var stream = imagepack.pack({
+      verbose: true
+    });
+
+  	stream.once('data', function (file) {
+      assert(file.contents.length > 0);
+  	});
+
+  	stream.on('end', cb);
+
+  	stream.write(new gutil.File({
+  		path: __dirname + '/example/images/graff_3.webp',
+		  contents: fs.readFileSync('example/images/graff_3.webp')
   	}));
 
   	stream.end();
@@ -60,7 +98,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();
@@ -90,7 +128,7 @@ describe('packer', function() {
 
   	stream.write(new gutil.File({
   		path: __dirname + '/example/images/graff.jpg',
-		  contents: fs.readFileSync('./example/images/graff.jpg')
+		  contents: fs.readFileSync('example/images/graff.jpg')
   	}));
 
   	stream.end();

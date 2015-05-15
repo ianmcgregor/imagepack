@@ -11,20 +11,33 @@
 	<title>imagepack</title>
 	<style type="text/css">
 		body {
-			background: #ddd;
+			background: #eee;
 		}
-		h1, img {
+		h1, h2, img, div {
 			display: block;
 			font-family: sans-serif;
-			margin: 10px auto;
+			margin: 20px auto;
 			max-width: 100%;
 			text-align: center;
+		}
+		img {
+			display: inline-block;
+			margin: 5px;
 		}
 	</style>
 </head>
 <body>
 	<h1>imagepack</h1>
-	<script src="../dist/imagepack.min.js"></script>
+	<div data-js="log"></div>
+	<h2>png sequence</h2>
+	<div data-js="png"></div>
+	<h2>jpg</h2>
+	<div data-js="jpg"></div>
+	<h2>gif</h2>
+	<div data-js="gif"></div>
+	<h2>webp</h2>
+	<div data-js="webp"></div>
+	<script src="../dist/imagepack.js"></script>
 	<script src="example.js"></script>
 </body>
 </html>

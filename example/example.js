@@ -2,31 +2,40 @@
 
 (function() {
 
+  var log = document.querySelector('[data-js="log"]');
+
   var imagepack = new window.Imagepack({
       verbose: true
     })
     .on('error', function(error) {
        console.error(error);
+       log.innerHTML = error;
     })
     .on('progress', function(progress) {
        console.log(progress);
+       log.innerHTML = 'loading ' + (progress * 100).toFixed() + '%';
     })
-    .once('complete', animate)
-    .once('complete', display)
+    .once('complete', function(names) {
+      var msg = '<h4>Loaded ' + names.length + ' files from packs/pack.bin</h4>';
+
+      log.innerHTML = names.reduce(function(value, name) {
+        return value + name + '<br>';
+      }, msg);
+
+    })
+    .once('complete', getPng)
+    .once('complete', getJpg)
+    .once('complete', getGif)
+    .once('complete', getWebp)
     .load('packs/pack.bin');
 
-  function display(keys) {
-      keys.forEach(function(name) {
-        document.body.appendChild(imagepack.getImage(name));
+  function getPng(names) {
+      var sequence = names.filter(function(name) {
+        return name.slice(-4) === '.png';
       });
-  }
-
-  function animate(keys) {
-      var sequence = keys.filter(function(name) {
-        return name.slice(0, 6) === 'loader';
-      });
+      var el = document.querySelector('[data-js="png"]');
       var img = new Image();
-      document.body.appendChild(img);
+      el.appendChild(img);
       var i = 0;
       var last = 0;
       function loop() {
@@ -47,6 +56,33 @@
         i++;
       }
       loop();
+  }
+
+  function getJpg(names) {
+      var el = document.querySelector('[data-js="jpg"]');
+      names.filter(function(name) {
+        return name.slice(-4) === '.jpg';
+      }).forEach(function(name) {
+        el.appendChild(imagepack.getImage(name));
+      });
+  }
+
+  function getGif(names) {
+      var el = document.querySelector('[data-js="gif"]');
+      names.filter(function(name) {
+        return name.slice(-4) === '.gif';
+      }).forEach(function(name) {
+        el.appendChild(imagepack.getImage(name));
+      });
+  }
+
+  function getWebp(names) {
+      var el = document.querySelector('[data-js="webp"]');
+      names.filter(function(name) {
+        return name.slice(-5) === '.webp';
+      }).forEach(function(name) {
+        el.appendChild(imagepack.getImage(name));
+      });
   }
 
 }());
