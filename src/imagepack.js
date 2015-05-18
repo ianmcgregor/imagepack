@@ -5,7 +5,7 @@ var Emitter = require('./emitter.js');
 function Imagepack(options) {
 
   if (!window.Blob || !window.DataView) {
-    console.warn('Imagepack --> Unspported browser');
+    console.warn('Imagepack --> Unsupported browser');
   }
 
   var imagepack;
@@ -91,7 +91,7 @@ function Imagepack(options) {
       console.log('Imagepack --> Unpacked ' + getKeys().length + ' images');
     }
 
-    imagepack.emit('complete', getKeys());
+    imagepack.emit('load', getKeys());
   }
 
   function load(path) {
@@ -192,6 +192,4 @@ if (!ArrayBuffer.prototype.slice) {
     };
 }
 
-if (typeof module === 'object' && module.exports) {
-    module.exports = Imagepack;
-}
+module.exports = Imagepack;
