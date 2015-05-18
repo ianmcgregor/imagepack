@@ -1,0 +1,21 @@
+{
+  "name": "imagepack-example",
+  "version": "1.0.0",
+  "description": "Simple example",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianmcgregor/imagepack"
+  },
+  "author": "ianmcgregor",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^10.2.0",
+    "gulp": "^3.8.11",
+    "imagepack": "^0.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
