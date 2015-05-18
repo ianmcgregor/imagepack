@@ -15,7 +15,7 @@
   "devDependencies": {
     "browserify": "^10.2.0",
     "gulp": "^3.8.11",
-    "imagepack": "^0.1.0",
+    "imagepack": "^0.1.2",
     "vinyl-source-stream": "^1.1.0"
   }
 }
