@@ -52,16 +52,16 @@ var imagepack = new Imagepack({
   .on('progress', function(progress) {
     console.log(progress);
   })
-  .once('complete', function(keys) {
-    animate(keys);
-    display(keys);
+  .once('load', function(names) {
+    animate(names);
+    display(names);
   })
   .load('../packed/test.bin');
 
 // call getImage to get an HTMLImageElement from the pack
-function display(keys) {
+function display(names) {
     // add all the images to the page:
-    keys.forEach(function(name) {
+    names.forEach(function(name) {
       document.body.appendChild(imagepack.getImage(name));
     });
 }
