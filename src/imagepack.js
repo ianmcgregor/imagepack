@@ -92,6 +92,8 @@ function Imagepack(options) {
         }
 
         imagepack.emit('load', getKeys());
+
+        return imagepack;
     }
 
     function load(path) {
