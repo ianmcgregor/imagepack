@@ -1,6 +1,6 @@
 {
   "name": "imagepack",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Pack multiple images into one file to minimise http requests",
   "keywords": [
     "image",
