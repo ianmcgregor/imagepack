@@ -52,7 +52,7 @@ function Imagepack(options) {
     }
 
     function getKeys() {
-        return Object.keys(images);
+        return Object.keys(images).sort();
     }
 
     function unpack(buffer) {
